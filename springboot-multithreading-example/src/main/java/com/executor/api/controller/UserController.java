@@ -20,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 public class UserController {
     @Autowired
     private UserService service;
-
+    							//declare consume and produce
     @PostMapping(value = "/users", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = "application/json")
     public ResponseEntity saveUsers(@RequestParam(value = "files") MultipartFile[] files) throws Exception {
         for (MultipartFile file : files) {

@@ -8,15 +8,16 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import java.util.concurrent.Executor;
 
 @Configuration
-@EnableAsync
+@EnableAsync // tell to run task in background
 public class AsyncConfig {
 
     @Bean(name ="taskExecutor")
     public Executor taskExecutor(){
-        ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();
+        ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();//object
+        
         executor.setCorePoolSize(2);
         executor.setMaxPoolSize(2);
-        executor.setQueueCapacity(100);
+        executor.setQueueCapacity(100);//number of TASK EACH HERE 2000/100
         executor.setThreadNamePrefix("userThread-");
         executor.initialize();
         return executor;
